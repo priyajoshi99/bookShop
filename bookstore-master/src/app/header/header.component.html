@@ -1,0 +1,61 @@
+<div class="nav">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <a href="#" class="navbar-brand">MENU</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav mr-auto">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a routerLink="categories/Angular" class="nav-item nav-link">Angular</a>
+                    <a routerLink="categories/Data Science" class="nav-item nav-link">Data Science</a>
+                    <a routerLink="categories/JavaScript" class="nav-item nav-link">Javascript</a>
+                    <a routerLink="categories/Programming" class="nav-item nav-link">Programming</a>
+                    <a routerLink="categories/Software Engineering" class="nav-item nav-link">Software Engineering</a>
+                    <a routerLink="categories/Web Development"  class="nav-item nav-link">Web Development</a>
+                </div>
+               <div class="navbar-nav ml-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">Login</a>
+                            <a href="#" class="dropdown-item">Register</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="bottom-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <div class="logo">
+                    <a href="index.html" class="logo-name">
+                        <b><span class="first">O</span>nline <span class="first">B</span>ook <span class="first">S</span>tore</b>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6 sea">
+                <div class="search">
+                    <input (keyup)="callkeyup()" [(ngModel)]="value" type="text" placeholder="Search">
+                    <button (click)="navigateto()"><fa-icon [icon]="faSearch"></fa-icon></button>
+                    <div [innerHtml]="html" class="bookslist">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="user">
+                    <a href="cart.html" class="btn cart">
+                        <fa-icon [icon]="faShoppingCart"></fa-icon>cart
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

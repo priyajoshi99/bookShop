@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-6 container">
+        <h1 class="container"><b>delete products</b></h1><br>
+        <div class="search">
+            <input [(ngModel)]="title" type="text" placeholder="Search for the product to update">
+            <button (click)="showdata()"><i class="fa fa-search">sea</i></button>
+        </div>
+    </div>
+    <div *ngIf="hide" class="row product mb-3 row main-row">
+        <div class="col-lg-4 col-md-12 col-sm-12">
+           <div class="product-img">
+               <img src="https://images-na.ssl-images-amazon.com/images/I/41c18QwVmUL._SX326_BO1,204,203,200_.jpg" alt="">
+           </div>
+        </div>
+        <div class="col-lg-8 col-md-12 col-sm-12">
+           <div class="product-title pt-3">
+               <h3>{{book.title}}</h3>
+           </div>
+           <h5><b>ISBN:</b>{{book.isbn}}</h5>
+           <h5><b>Author:</b>{{book.authors[0]}}</h5>
+           <h5><b>Short desc:</b>{{book.shortDescription}}</h5>
+           <h5><b>long desc:</b>{{book.longDescription}}</h5>
+           <!-- <p><b>Description:</b>:{{bookcategories[i].shortDescription}}</p> -->
+           <h5><b>USD:</b>{{book.price}}</h5>
+           <div class="navigation mb-1 pt-3">
+               
+               <button (click)="deleteproduct()" class="btn btn-outline-dark">delete</button>
+           </div>
+        </div>
+      </div>
+</div>

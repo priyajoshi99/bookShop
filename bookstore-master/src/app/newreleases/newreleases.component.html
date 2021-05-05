@@ -1,0 +1,27 @@
+<div class="container ">
+    <div *ngFor="let book of newrelease; let i=index" class="row product mb-3" class="row main-row">
+      <div class="col-lg-4 col-md-12 col-sm-12">
+         <div class="product-img">
+             <img src="https://images-na.ssl-images-amazon.com/images/I/41c18QwVmUL._SX326_BO1,204,203,200_.jpg" alt="">
+         </div>
+      </div>
+      <div class="col-lg-8 col-md-12 col-sm-12">
+         <div class="product-title pt-3">
+             <h3>{{book.title}}</h3>
+         </div>
+         <h5><b>Availability:</b>In stock</h5>
+         <h5><b>Author:{{book.authors[0]}}</b></h5>
+         <!-- <p><b>Description:</b>:{{bookcategories[i].shortDescription}}</p> -->
+         <div class="product-desc p-2">
+             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut debitis in temporibus assumenda, vitae culpa voluptatem nihil sunt maxime tenetur expedita ad consequuntur, ipsam incidunt! Numquam obcaecati atque sapiente voluptate?
+          </div>
+         <h5><b>USD:</b>{{book.price}}</h5>
+         <div class="navigation mb-1 pt-3">
+             <button (click)="navigateto(book.title)" class="btn btn-outline-dark mr-1">product details</button>
+             <button class="btn btn-outline-dark">Add to cart</button>
+         </div>
+      </div>
+    </div>
+     
+       
+ </div>

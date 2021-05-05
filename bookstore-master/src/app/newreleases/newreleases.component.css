@@ -1,0 +1,16 @@
+body{
+    background-color: #eee;
+  }
+  .main-row{
+    margin:8%;
+    background-color:white;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, .05);
+    border-radius: 0.5rem;
+  }
+  .product-img >img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    border-radius:0.5rem;
+    /* box-shadow: 0 0 8px 3px rgba(0,0,0,.3); */
+  }

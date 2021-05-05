@@ -1,0 +1,42 @@
+.view{
+    background-color:#FF6F61;
+}
+
+.bgclr{
+    background-color:#353535;
+    border: 1px solid white;
+    margin-left:300px;
+}
+
+
+.bgclr:hover{
+    background-color: white;
+}
+.btn{
+    margin-left: 80px;
+    background-color: #FF6F61;
+    transition: transform .2s;
+}
+/* 
+.btn:hover{
+    background-color: white;
+    transform: scale(1.1);
+    color:#FF6F61;
+    border:1px solid #FF6F61;
+} */
+a{
+    text-decoration: none;
+    color:white
+}
+a:hover{
+    color: #ff6f61;
+}
+h2{
+    color: #FF6F61;
+}
+.log{
+    text-decoration: none;
+}
+.log:hover{
+    color:black;
+}

@@ -1,0 +1,28 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Today's Deals</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let item of ItemsArray" >
+      <mat-card class="dashboard-card card-image">
+       <!-- <img [src]="card.img" style="width: 300px; height: 300px;"/>  -->
+        <mat-card-header>
+          <mat-card-title style="text-align: center;" >
+            <strong> {{item.title | uppercase}} </strong>  
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item (click)="navigateTo(item.title)">View Details</button>
+              <button mat-menu-item>Add to Cart</button>
+            </mat-menu>
+          </mat-card-title> <br>
+        </mat-card-header>
+          <div></div>
+        <mat-card-content class="dashboard-card-content">
+          <div><strong>Discription: </strong> {{item.shortDescription}}</div><br>
+          <div><strong>Price: </strong> {{item.price | currency : 'USD'}} </div>
+          <div><strong>Discount: </strong> {{item.discount}} {{item.discountUnits}}</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

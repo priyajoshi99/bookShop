@@ -1,0 +1,109 @@
+<div class="container ">
+   <div *ngFor="let book of bookcategories; let i=index" class="row product mb-3" class="row main-row">
+     <div class="col-lg-4 col-md-12 col-sm-12">
+        <div class="product-img">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/41c18QwVmUL._SX326_BO1,204,203,200_.jpg" alt="">
+        </div>
+     </div>
+     <div class="col-lg-8 col-md-12 col-sm-12">
+        <div class="product-title pt-3">
+            <h3>{{bookcategories[i].title}}</h3>
+        </div>
+        <h5><b>Availability:</b>In stock</h5>
+        <h5><b>Author:{{bookcategories[i].authors[0]}}</b></h5>
+        <!-- <p><b>Description:</b>:{{bookcategories[i].shortDescription}}</p> -->
+        <div class="product-desc p-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut debitis in temporibus assumenda, vitae culpa voluptatem nihil sunt maxime tenetur expedita ad consequuntur, ipsam incidunt! Numquam obcaecati atque sapiente voluptate?
+         </div>
+        <h5><b>USD:</b>{{bookcategories[i].price}}</h5>
+        <div class="navigation mb-1 pt-3">
+            <button (click)="navigateto(bookcategories[i].title)" class="btn btn-outline-dark mr-1">product details</button>
+            <button class="btn btn-outline-dark">Add to cart</button>
+        </div>
+     </div>
+   </div>
+    <!-- <div class="row product mb-3">
+        <div class="col-md-5  bg-dark">
+            <img src="https://www.perlego.com/books/RM_Books/packt_pub_vpnckweg/9781788834919_500_750.jpg" alt="">
+        </div>
+        <div class="col-md-7">
+            <h2>{{bookcategories[0].title}}</h2>
+            <h5><b>Availability:</b>In stock</h5>
+            <h5><b>Author:</b></h5>
+            <p><b>Description:</b>:Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.</p>
+
+            <h5><b>USD:</b>$11.99</h5>
+            <button class="btn bg-primary m-2">product details</button>
+            <button class="btn bg-primary">Add to cart</button>
+        </div>
+    </div> -->
+        <!-- <div class="row product mb-3">
+            <div class="col-md-5  bg-dark">
+                <img src="https://www.perlego.com/books/RM_Books/packt_pub_vpnckweg/9781788834919_500_750.jpg" alt="">
+            </div>
+            <div class="col-md-7">
+                <h2> Full stack web development</h2>
+                <h5><b>Availability:</b>In stock</h5>
+                <h5><b>Author:</b></h5>
+                <p><b>Description:</b>:Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.</p>
+
+                <h5><b>USD:</b>$11.99</h5>
+                <button class="btn bg-primary">product details</button>
+               <button class="btn bg-primary">Add to cart</button>
+                
+            </div>
+          
+        </div> -->
+        <!-- <div class="row product mb-3">
+            <div class="col-md-5  bg-dark">
+                <img src="https://www.perlego.com/books/RM_Books/packt_pub_vpnckweg/9781788834919_500_750.jpg" alt="">
+            </div>
+            <div class="col-md-7">
+                <h2> Full stack web development</h2>
+                <h5><b>Availability:</b>In stock</h5>
+                <h5><b>Author:</b></h5>
+                <p><b>Description:</b>:Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.</p>
+
+                <h5><b>USD:</b>$11.99</h5>
+                <button class="btn bg-primary">product details</button>
+                <button class="btn bg-primary">Add to cart</button>
+                
+            </div>
+          
+        </div> -->
+        <!-- <div class="row product mb-3">
+            <div class="col-md-5  bg-dark">
+                <img src="https://www.perlego.com/books/RM_Books/packt_pub_vpnckweg/9781788834919_500_750.jpg" alt="">
+            </div>
+            <div class="col-md-7">
+                <h2> Full stack web development</h2>
+                <h5><b>Availability:</b>In stock</h5>
+                <h5><b>Author:</b></h5>
+                <p><b>Description:</b>:Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.</p>
+
+                <h5><b>USD:</b>$11.99</h5>
+                <button class="btn bg-primary">product details</button>
+                <button class="btn bg-primary">Add to cart</button>
+                
+            </div>
+          
+        </div> -->
+        <!-- <div class="row product mb-3">
+            <div class="col-md-5  bg-dark">
+                <img src="https://www.perlego.com/books/RM_Books/packt_pub_vpnckweg/9781788834919_500_750.jpg" alt="">
+            </div>
+            <div class="col-md-7">
+                <h2> Full stack web development</h2>
+                <h5><b>Availability:</b>In stock</h5>
+                <h5><b>Author:</b></h5>
+                <p><b>Description:</b>:Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout.</p>
+
+                <h5><b>USD:</b>$11.99</h5>
+                <button class="btn bg-primary m-2">product details</button>
+                 <button class="btn bg-primary">Add to cart</button> 
+                
+            </div>
+          
+        </div> -->
+      
+</div>

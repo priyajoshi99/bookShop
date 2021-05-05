@@ -1,0 +1,28 @@
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>categories</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="book">
+            <td>{{bookdetail[0].title}}</td>
+            <td>
+              <div class="stars-outer">
+                <div [style.width]="starPercentageRounded" class="stars-inner"></div>
+                
+              </div>
+              <span class="number-rating"></span>
+            </td>
+          </tr>
+          
+          
+          
+          
+        </tbody>
+      </table>
+      <button (click)="getRatings()">get ratings</button>
+</div>
+

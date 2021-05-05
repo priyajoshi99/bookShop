@@ -1,0 +1,38 @@
+.grid-container {
+  margin: 20px;
+  background-color: #FF6F61;
+}
+
+.mat-h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
+  font-size: 30px;
+  font-style: oblique;
+  color: red;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.dashboard-card:hover {
+  -ms-transform: scale(1.0); /* IE 9 */
+ 
+  transform: scale(0.9); 
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: justify;
+  font-size: large;
+  
+}

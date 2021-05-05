@@ -1,0 +1,141 @@
+
+    <div class="col-md-6 container">
+        <h1 class="container"><b>Update/delete Products</b></h1><br>
+        <div class="search">
+            <input [(ngModel)]="title" type="text" placeholder="enter title for search" (ngModelChange)="search()">
+            <!-- <button (click)="showdata()"><i class="fa fa-search">sea</i></button> -->
+        </div>
+    </div>
+
+    <table  id="books" *ngIf="!showform" class="mt-2"> 
+       <thead>
+        <tr>
+          <th>id</th>
+          <th>title</th>
+          <th>category</th>
+          <th>publisheddate</th>
+          <th>price</th>
+          <th>Actions</th>
+        </tr>
+       </thead>
+        <tbody>
+          <tr *ngFor="let book of allbooks ">
+            <td>{{book._id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.categories[0]}}</td>
+            <td>{{book.publishedDate|date}}</td>
+            <td>{{book.price}}</td>
+            <td>
+              
+                <button type="button" (click)="showdata(book.title)" class="btn btn-primary mr-1">update</button> 
+                <button type="button" (click)="deleteproduct(book._id)"class="btn btn-danger">delete</button>
+               
+          </td>
+        </tr>
+        </tbody>
+        <!-- <pagination-controls  (pagechange)="p = $event"></pagination-controls> -->
+    </table>
+    
+    <div class="container">
+      <form [formGroup]="updateProductForm" *ngIf="showform">
+
+        {{title}}
+    
+        {{updateProductForm.value|json}}
+    
+        <div class="form-group">
+          <label >object id</label>
+          <input  type="text"  disabled class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >title</label>
+          <input type="text" formControlName="title" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >isbn</label>
+          <input type="text" formControlName="isbn" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >page count</label>
+          <input type="number" formControlName="pageCount" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >publishedDate</label>
+          <input type="date" formControlName="publishedDate" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >thumbnailUrl</label>
+          <input type="text" formControlName="thumbnailurl" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >shortDescription
+          </label>
+          <input type="text" formControlName="shortDescription" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >longDescription
+          </label>
+          <input type="text" formControlName="longDescription" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >status</label>
+          <input type="text" formControlName="status" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >authors</label>
+          <input type="text" formControlName="authors" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >categories</label>
+          <input type="text" formControlName="categories" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >price</label>
+          <input type="number" formControlName="price" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >currency</label>
+          <input type="text" formControlName="currency" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >discount</label>
+          <input type="text" formControlName="discount" class="form-control"  >
+          
+        </div>
+    
+        <div class="form-group">
+          <label >discount units</label>
+          <input type="text" disabled class="form-control" value="percent" >
+          
+        </div>
+        <button class="btn btn-primary mr-1" (click)="updatedata()" >update data</button>
+      </form>
+      </div>
+
+ 

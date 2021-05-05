@@ -1,0 +1,210 @@
+<div class = "card-wrap">
+    <div class = "cards">
+      <div class = "product-imgs">
+        <div class = "img-display">
+          <div class = "img-showcase">
+            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+          </div>
+        </div>
+        <div class = "img-select">
+          <div class = "img-item">
+            <a href = "#" data-id = "1">
+              <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "2">
+              <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "3">
+              <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            </a>
+          </div>
+          <div class = "img-item">
+            <a href = "#" data-id = "4">
+              <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- card right -->
+      <div class = "product-content">
+        <h2 class = "product-title">{{bookdetail[0].title}}</h2>
+        <i class = "fas fa-star"></i>
+       
+        <div class = "product-rating">
+           <!-- <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star"></i>
+          <i class = "fas fa-star-half-alt"></i> -->
+          <!-- <fa-icon [icon]="faStar"></fa-icon>
+          <fa-icon [icon]="faStar"></fa-icon>
+          <fa-icon [icon]="faStar"></fa-icon>
+          <fa-icon [icon]="faStarHalf"></fa-icon>
+           <span>{{average}}({{bookdetail[0].reviews.length}})</span>  -->
+        </div>
+
+        <div class = "product-price">
+          <p class = "last-price">Old Price: <span>{{bookdetail[0].price|currency:'INR'}}</span></p>
+          <p class = "new-price">New Price: <span>{{newprice|currency:'INR'}}</span></p>
+        </div>
+
+        <div class = "product-detail">
+          <h4>Author:<h5 class="d-inline">{{bookdetail[0].authors[0]}}</h5></h4>
+         <div class="mt-1" *ngIf="bookdetail[0].hasOwnProperty('shortDescription')">
+          <h2>about this book </h2>
+          <p>{{bookdetail[0].shortDescription}}</p>
+         </div>
+          <ul>
+            <li>Color: <span>Black</span></li>
+            <li>Available: <span>in stock</span></li>
+            <li>Category: <span>Books</span></li>
+            <li>Shipping Fee: <span>Free</span></li>
+          </ul>
+        </div>
+
+        <div class = "purchase-info">
+          <input type = "number" min = "0" value = "1">
+          <button type = "button" class = "btn">
+            Add to Cart <fa-icon [icon]="faShoppingCart"></fa-icon>
+          </button>
+        </div>
+
+        <!-- <div class = "social-links">
+          <p>Share At: </p>
+          <a href = "#">
+            <i class = "fab fa-facebook-f"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-twitter"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-instagram"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-whatsapp"></i>
+          </a>
+          <a href = "#">
+            <i class = "fab fa-pinterest"></i>
+          </a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto">
+    <div class="jumbotron jumbotron-fluid mt-2" *ngIf="bookdetail[0].hasOwnProperty('longDescription')">
+        <div class="p-3">
+          <h1 class="display-5 p-2">Product description:</h1>
+          <p class="lead p-2">{{bookdetail[0].longDescription}}</p>
+        </div>
+      </div>
+
+      <!-- <div *ngIf="bookdetail[0].reviews.length!=0">
+        <div class="border border-dark mt-2 ">
+             <h5>{{bookdetail[0].reviews|json}}</h5> 
+           <div *ngFor="let review of bookdetail[0].reviews">
+              <h4>{{review.name}}</h4>
+              <p>{{review.comment}}</p>
+           </div>
+        </div>
+  </div> -->
+
+     
+
+     <!-- user reviews -->
+       
+  </div>
+  <div id="reviews" *ngIf="bookdetail[0].reviews.length!=0">
+    <!--heading--->
+    <div class="review-heading">
+        <span>Reviews</span>
+        <!-- <h1>Clients Says</h1> -->
+    </div>
+    <!--reviews-box-container------>
+    <div class="review-box-container" >
+        <!--BOX-1-------------->
+        <div class="review-box" *ngFor="let review of bookdetail[0].reviews">
+            <!--top------------------------->
+            <div class="box-top">
+                <!--profile----->
+                <div class="profile">
+                    <!--img---->
+                    <div class="profile-img">
+                        <img src="/assets/images/bookImage1.jpg" />
+                    </div>
+                    <!--name-and-username-->
+                    <div class="name-user">
+                        <strong>{{review.name}}</strong>
+                        <!-- <span>@touseeqijazweb</span> -->
+                    </div>
+                </div>
+                <!--reviews------>
+                <div class="reviews"  >
+                    <!-- <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>Empty star -->
+                    <div class="stars d-inline" *ngFor='let in of counter(review.rating)' >
+                      <fa-icon [icon]="faStar"></fa-icon>
+                      
+                    </div>
+                    <span>{{review.rating}}</span>
+                    
+                </div>
+            </div>
+            <!--Comments---------------------------------------->
+            <div class="client-comment">
+                <p>{{review.comment}}</p>
+            </div>
+        </div>
+    </div>
+  </div>
+   <!-- review form -->
+   <div class="container mx-auto">
+    <div *ngIf="formvisible">
+      <h3 class="mb-2 text-center">Review form</h3>
+      <form  #reviewform="ngForm" (ngSubmit)="onsubmit(reviewform)" novalidate>
+           {{reviewmodel | json}} 
+        <div class="form-group mt-2">
+          <label >Name</label>
+          <input type="text" required class="form-control" #user="ngModel" [class.is-invalid]="user.invalid&&user.touched" name="username" [(ngModel)]="reviewmodel.name">
+          <small class="text-danger"[class.d-none]="user.valid||user.untouched ">Name is reqired</small>
+        </div>
+  
+        <div class="form-group mt-2">
+          <label >title</label>
+          <input type="text" required class="form-control"  [class.is-invalid]="title.invalid&&title.touched" name="title" value={{bookdetail[0].title}} disabled >
+          <!-- <small class="text-danger"[class.d-none]="title.valid||title.untouched ">title is reqired</small> -->
+        </div>
+        
+        
+        <div class="form-group mt-2">
+          <label > textarea</label>
+          <textarea required class="form-control" #comment="ngModel" [class.is-invalid]="user.invalid&&user.touched" name="username" class="form-control" name="comment" rows="3" [(ngModel)]="reviewmodel.comment" ></textarea>
+          <small class="text-danger"[class.d-none]="comment.valid||comment.untouched ">comment is reqired</small>
+        </div>
+
+        <div class="form-group mt-2">
+          <label >rating</label>
+          <input type="number" required class="form-control" #rating="ngModel" pattern="^[1-5]$" [class.is-invalid]="rating.invalid&&rating.touched" name="rating" [(ngModel)]="reviewmodel.rating" required step="0.1" max="5" >
+          <!-- <small class="text-danger" [class.d-none]="rating.valid||rating.untouched ">invalid number</small><br> -->
+          <small class="text-danger" [class.d-none]="reviewmodel.rating<=5">enter a number a number between 1 to 5</small> 
+        </div>
+
+        <button [disabled]="reviewform.form.invalid" class="btn btn-primary p-2 mt-1">submit</button>
+      </form>
+   </div>
+   </div>
+
+ <div class="container text-right ">
+  <button (click)="showform()" class="btn btn-primary p-2">Add reviews</button>
+ </div>
+ 
+

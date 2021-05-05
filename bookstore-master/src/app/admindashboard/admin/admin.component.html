@@ -1,0 +1,17 @@
+<div class="jumbotron text-center view">
+    <h1>Welcome To Admin Dashboard</h1>
+    <h5 style="margin-left:1100px;"><a routerLink="" class="log">Logout</a></h5>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 jumbotron bgclr">
+        <h2>Products</h2>
+        <!-- <p class="text-center">Add,Update,Delete Products</p> -->
+        <button (click)="adddata()"class="btn">Add</button>
+        <button (click)="updateform()" class="btn">Update/delete</button>
+        <!-- <button (click)="delete()" class="btn">delete</button> -->
+      </div>
+    </div>
+    
+  </div>
+<router-outlet></router-outlet>

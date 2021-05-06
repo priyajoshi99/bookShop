@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { books } from '../book';
 import { BookdetailService } from '../bookdetail.service';
 import { NewreleasesService } from '../newreleases.service';
-import { ActivatedRoute, ParamMap} from '@angular/router'
+import { ActivatedRoute, ParamMap, Router} from '@angular/router'
 import { review } from '../userreview';
 import { PostreviewsService } from '../postreviews.service';
 import {faStar,faShoppingCart,faStarHalf} from '@fortawesome/free-solid-svg-icons';
+import { RegisteruserService } from '../registeruser.service';
+import { AddproductstocartService } from '../addproductstocart.service';
+
 
 @Component({
   selector: 'app-productdetails',
@@ -17,6 +20,9 @@ export class ProductdetailsComponent implements OnInit {
   faStar=faStar
   faShoppingCart=faShoppingCart
   faStarHalf=faStarHalf
+
+  loggeduser:any
+  
 
   formvisible=false
   name="hemanth";
@@ -38,7 +44,7 @@ export class ProductdetailsComponent implements OnInit {
   // constructor(private ns:NewreleasesService) { }
 
   // constructor(private ns:NewreleasesService) { }
-  constructor(private bs:BookdetailService,private route:ActivatedRoute,private pr:PostreviewsService){
+  constructor(private bs:BookdetailService,private route:ActivatedRoute,private pr:PostreviewsService,public rs:RegisteruserService,private r:Router,private ap:AddproductstocartService){
     
   }
 
@@ -81,6 +87,24 @@ export class ProductdetailsComponent implements OnInit {
      
   }
 
+  navigatetocart(){
+    let cart={
+      uid:this.loggeduser,
+      pid:this.bookdetail[0]._id,
+      title:this.bookdetail[0].title,
+      price:this.bookdetail[0].price,
+      qty:1,
+      discount:this.bookdetail[0].discount,
+    }
+
+   this.ap.addproducts(cart).subscribe((data)=>{
+     console.log(data);
+     
+   })
+   this.r.navigate([`/addtocart`])
+    
+  }
+
  
         
   
@@ -103,6 +127,10 @@ export class ProductdetailsComponent implements OnInit {
             
             
         })
+
+       console.log(this.rs.getuserid())
+      this.loggeduser=this.rs.getuserid()
+      console.log(this.loggeduser)
       
       
 

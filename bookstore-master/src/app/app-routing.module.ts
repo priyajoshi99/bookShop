@@ -12,6 +12,10 @@ import { HomeComponent } from './home/home.component';
 import { NewreleasesComponent } from './newreleases/newreleases.component';
 import { NotificationComponent } from './notification/notification.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { LoginComponent } from './users/login/login.component';
+import { RegisterComponent } from './users/register/register.component';
+import { AuthGuard } from './auth.guard;
+import { AddtocartComponent } from './cart/addtocart/addtocart.component';
 
 const routes: Routes = [
    {path:'',component:ContentComponent},
@@ -22,11 +26,14 @@ const routes: Routes = [
   {path:"productdetails/:title",component:ProductdetailsComponent},
   {path:"categories/:name",component:CategoriesComponent},
   {path:"newreleases",component:NewreleasesComponent},
-  {path:"admin",component:AdminComponent,children:[
+  {path:"admin",component:AdminComponent,canActivate:[AuthGuard],children:[
     {path:'add',component:AdddataComponent},
     {path:'update',component:UpdatedataComponent},
     {path:'delete',component:DeletedataComponent}
-  ]}
+  ]},
+  {path:'register',component:RegisterComponent},
+   {path:'login',component:LoginComponent},
+  {path:'addtocart',component:AddtocartComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -1,1 +1,66 @@
+<div class="jumbotron text-center view">
+    <h1>My Cart</h1>
+</div>
+<div class="cart-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-page-inner">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody class="align-middle" *ngFor="let prod of productArray">
+                                <tr>
+                                    <td>
+                                        <div class="img">
+                                            <a href="#"><img src="{{prod.img}}" alt="Image"></a>
+                                            <p>{{prod.title}}</p>
+                                        </div>
+                                    </td>
+                                    <td>{{prod.price}}</td>
+                                    <td>
+                                        <div class="qty">
+                                            <button class="btn-minus" (click)="dec(prod)"><i class="fa fa-minus"></i></button>
+                                            <input type="text" value="{{prod.qty}}">
+                                            <button class="btn-plus" (click)="inc(prod)"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </td>
+                                    <td>{{prod.totalAmount}}</td>
+                                    <td><button (click)="remove(prod)"><i class="fa fa-trash"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="cart-page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="cart-summary">
+                                <div class="cart-content">
+                                    <h1>Cart Summary</h1>
+                                    <p>Total<span>{{total}}</span></p>
+                                    <p>Discount (in %)<span>{{dis}}</span></p>
+                                    <h2>Grand Total<span>{{total-(total*dis/100)}}</span></h2>
+                                </div>
+                                <div class="cart-btn">
+                                    <button><a routerLink="/cart/placeorder" class="order">Place Order</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

@@ -36,6 +36,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { EditInfoComponent } from './edit-info/edit-info.component';
 import { NotificationComponent } from './notification/notification.component';
+import { RegisterComponent } from './users/register/register.component';
+import { LoginComponent } from './users/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { TokeninterceptorService } from './tokeninterceptor.service';
+import { AddtocartComponent } from './cart/addtocart/addtocart.component';
 
 
 
@@ -60,7 +65,10 @@ import { NotificationComponent } from './notification/notification.component';
     NavComponent,
     HomeComponent,
     EditInfoComponent,
-    NotificationComponent
+    NotificationComponent,
+    RegisterComponent,
+    LoginComponent,
+    AddtocartComponent,
     
 
   ],
@@ -84,7 +92,11 @@ import { NotificationComponent } from './notification/notification.component';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [NewreleasesService,BookdetailService,CategoriesbooksService],
+  providers: [NewreleasesService,BookdetailService,CategoriesbooksService,AuthGuard,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokeninterceptorService,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

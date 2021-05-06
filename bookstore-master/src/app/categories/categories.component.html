@@ -2,7 +2,7 @@
    <div *ngFor="let book of bookcategories; let i=index" class="row product mb-3" class="row main-row">
      <div class="col-lg-4 col-md-12 col-sm-12">
         <div class="product-img">
-            <img src="https://images-na.ssl-images-amazon.com/images/I/41c18QwVmUL._SX326_BO1,204,203,200_.jpg" alt="">
+            <img src="{{bookcategories[i].thumbnailUrl}}" alt="">
         </div>
      </div>
      <div class="col-lg-8 col-md-12 col-sm-12">

@@ -3,13 +3,11 @@
       <div class = "product-imgs">
         <div class = "img-display">
           <div class = "img-showcase">
-            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
-            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
-            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
-            <img src = "/assets/images/bookImage1.jpg" alt = "book image">
+            <img src = "{{bookdetail[0].thumbnailUrl}}" alt = "book image">
+            
           </div>
         </div>
-        <div class = "img-select">
+        <!-- <div class = "img-select">
           <div class = "img-item">
             <a href = "#" data-id = "1">
               <img src = "/assets/images/bookImage1.jpg" alt = "book image">
@@ -30,7 +28,7 @@
               <img src = "/assets/images/bookImage1.jpg" alt = "book image">
             </a>
           </div>
-        </div>
+        </div> -->
       </div>
       <!-- card right -->
       <div class = "product-content">
@@ -71,7 +69,7 @@
 
         <div class = "purchase-info">
           <input type = "number" min = "0" value = "1">
-          <button type = "button" class = "btn">
+          <button type = "button" class = "btn" (click)="navigatetocart()">
             Add to Cart <fa-icon [icon]="faShoppingCart"></fa-icon>
           </button>
         </div>
@@ -204,7 +202,10 @@
    </div>
 
  <div class="container text-right ">
-  <button (click)="showform()" class="btn btn-primary p-2">Add reviews</button>
+ 
+  <button (click)="showform()" *ngIf="(rs.loggedin())" class="btn btn-primary p-2">Add reviews</button>
  </div>
+
+ <!-- {{loggeduser.value|json}} -->
  
 

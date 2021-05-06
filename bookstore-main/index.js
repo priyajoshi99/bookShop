@@ -169,6 +169,109 @@ app.post('/profile',(req,res) =>{
 
 });
 
+//users
+
+function verifytoken(req,res,next){
+  if(!req.headers.authorization){
+    return res.status(401).send("unauthorized access")
+  }
+  let token=req.headers.authorization.split('')[1]
+  if(token=='null'){
+    return  res.status(401).send("unauthorized access")
+  }
+  let payload=jwt.verify(token,'secretKey')
+  if(!payload){
+    return  res.status(401).send("unauthorized access")
+  }
+  req.userId=payload.subject
+  next()
+}
+
+app.post('/user/register',(req,res)=>{
+  let userinfo=req.body;
+  console.log(userinfo)
+  var user1=new user(userinfo)
+  user1.save((err,result)=>{
+      if(err){
+          console.log("error")
+      }
+      else{
+          console.log("document saved to user collection")
+          let payload={subject:result._id}
+          let token=jwt.sign(payload,'secretKey')
+          res.status(200).send({token});
+      }
+  })
+})
+
+app.post('/user/login',(req,res)=>{
+  let logindetails=req.body;
+  console.log(logindetails)
+  user.findOne({email:logindetails.email},(err,userp)=>{
+    if(err){
+      console.log(err)
+    }else{
+      if(!userp){
+        res.status(401).send("invalid email")
+      }else{
+        console.log(userp)
+        if(userp.password!=logindetails.password){
+          res.status(401).send("invalid password")
+        }
+        else{
+          let payload={subject:userp._id}
+          let token=jwt.sign(payload,'secretKey')
+          console.log("login was successful")
+          res.status(200).send({token,userp})
+        }
+      }
+    }
+  })
+})
+
+//adding products in the user
+
+app.post('/user/cart',async (req,res)=>{
+
+  console.log(req.body)
+  let userid=req.body.uid;
+  console.log(userid)
+  var cartitem={
+    pid:req.body.pid,
+    title:req.body.title,
+    price:req.body.price,
+    qty:req.body.qty,
+    discount:req.body.discount
+  }
+ await  user.findByIdAndUpdate(
+    userid,
+    {
+        $push:{
+            cart:cartitem
+        }
+    }
+    )
+  console.log("data pushed to cart array")
+  res.status(200).send("data pushed")
+  
+   
+})
+
+//getting user details
+
+app.get('/user/:id',(req,res)=>{
+
+   let userid=req.params.id;
+   user.findById(userid,(err,result)=>{
+     if(err){
+       console.log(err)
+     }else{
+       console.log(result)
+       res.json(result)
+     }
+   })
+})
+
 app.patch('/profile/:id',(req,res)=>{
     Profile.findOneAndUpdate({_id:req.params.id}, {
         $set: req.body
